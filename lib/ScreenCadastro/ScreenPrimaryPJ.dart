@@ -1,16 +1,100 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tcc/ScreenPrimary/ScreenPrimaryUser.dart';
+import 'package:tcc/ScreenPrimary/ScreenPrimaryPJ.dart';
 
-class CadastroLogin extends StatefulWidget {
-  const CadastroLogin({Key? key}) : super(key: key);
+class CadastroLoginPJ extends StatefulWidget {
+  const CadastroLoginPJ({Key? key}) : super(key: key);
 
   @override
-  _CadastroLogin createState() => _CadastroLogin();
+  _CadastroLoginPJ createState() => _CadastroLoginPJ();
 }
 
-class _CadastroLogin extends State<CadastroLogin> {
+class _CadastroLoginPJ extends State<CadastroLoginPJ> {
   bool isRememberMe = false;
+
+  Widget buildNome() {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const Text(
+            'Nome',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 6,
+                      offset: Offset(0, 2))
+                ]),
+            height: 60,
+            child: const TextField(
+              keyboardType: TextInputType.emailAddress,
+              style: TextStyle(color: Colors.black87),
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(top: 14),
+                  prefixIcon: Icon(
+                    Icons.person,
+                    color: Color.fromARGB(255, 44, 120, 182),
+                  ),
+                  hintText: 'Name',
+                  hintStyle: TextStyle(color: Colors.black38)),
+            ),
+          )
+        ]);
+  }
+
+  Widget buildCNPJ() {
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const Text(
+            'CNPJ',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 6,
+                      offset: Offset(0, 2))
+                ]),
+            height: 60,
+            child: const TextField(
+              keyboardType: TextInputType.emailAddress,
+              style: TextStyle(color: Colors.black87),
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(top: 14),
+                  prefixIcon: Icon(
+                    Icons.person_pin,
+                    color: Color.fromARGB(255, 44, 120, 182),
+                  ),
+                  hintText: 'CNPJ',
+                  hintStyle: TextStyle(color: Colors.black38)),
+            ),
+          )
+        ]);
+  }
 
   Widget buildEmail() {
     return Column(
@@ -96,46 +180,6 @@ class _CadastroLogin extends State<CadastroLogin> {
         ]);
   }
 
-  Widget buildEsqueceSenhaBtn() {
-    return Container(
-      alignment: Alignment.centerRight,
-      child: FlatButton(
-        onPressed: () => print('Pressione aqui para trocar'),
-        padding: const EdgeInsets.only(right: 0),
-        child: const Text(
-          'Esqueceu a Senha?',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-      ),
-    );
-  }
-
-  Widget buildRelembraCb() {
-    return SizedBox(
-      height: 20,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.white),
-            child: Checkbox(
-              value: isRememberMe,
-              checkColor: Colors.blue,
-              onChanged: (value) {
-                setState(() {
-                  isRememberMe = value!;
-                });
-              },
-            ),
-          ),
-          const Text(
-            'Relembrar Senha',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget buildLoginBtn() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 25),
@@ -143,7 +187,7 @@ class _CadastroLogin extends State<CadastroLogin> {
       child: RaisedButton(
         elevation: 5,
         onPressed: () => Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ScreenPrimary())),
+            MaterialPageRoute(builder: (context) => const ScreenPrimaryPJ())),
         padding: const EdgeInsets.all(15),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -156,27 +200,6 @@ class _CadastroLogin extends State<CadastroLogin> {
               fontSize: 18,
               fontWeight: FontWeight.bold),
         ),
-      ),
-    );
-  }
-
-  Widget buildSingUpBtn() {
-    return GestureDetector(
-      onTap: () => print('Cadastrar'),
-      child: RichText(
-        text: const TextSpan(children: [
-          TextSpan(
-            text: 'Não tem uma conta? ',
-            style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
-          ),
-          TextSpan(
-              text: 'Cadastrar',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold))
-        ]),
       ),
     );
   }
@@ -212,21 +235,23 @@ class _CadastroLogin extends State<CadastroLogin> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Text(
-                        'Cadastro',
+                        'Cadastro de conta PJ',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 40,
+                          fontSize: 35,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 50),
+                      const SizedBox(height: 40),
+                      buildNome(),
+                      const SizedBox(height: 20),
+                      buildCNPJ(),
+                      const SizedBox(height: 20),
                       buildEmail(),
                       const SizedBox(height: 20),
                       buildSenha(),
-                      buildEsqueceSenhaBtn(),
-                      buildRelembraCb(),
+                      const SizedBox(height: 20),
                       buildLoginBtn(),
-                      buildSingUpBtn(),
                     ],
                   ),
                 ),

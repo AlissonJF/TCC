@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'ScreenPrimary/ScreenPrimaryUser.dart';
-import 'CadastroLogin.dart';
+import 'package:tcc/ScreenPrimary/ScreenPrimaryUser.dart';
+import 'package:tcc/TipoCadastro.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -162,7 +162,7 @@ class _LoginScreenState extends State<LoginPage> {
   Widget buildSingUpBtn() {
     return GestureDetector(
       onTap: () => Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const CadastroLogin())),
+          MaterialPageRoute(builder: (context) => const TipoCadastro())),
       child: RichText(
         text: const TextSpan(children: [
           TextSpan(
@@ -171,7 +171,7 @@ class _LoginScreenState extends State<LoginPage> {
                 color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
           ),
           TextSpan(
-              text: 'Cadastrar',
+              text: ' Cadastrar',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
