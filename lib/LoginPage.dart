@@ -12,6 +12,24 @@ class LoginPage extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginPage> {
   bool isRememberMe = false;
+  var alisson = 'alisson@email.com';
+  var zanca = '1234@email.com';
+  var senha = '157953';
+  var senhaZanca = '123456';
+
+  void validacao() {
+    setState(() {
+      if (alisson != '') {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ScreenPrimary()));
+      } else if (zanca != '') {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ScreenPrimary()));
+      } else {
+        'Erro ao tentar acessar';
+      }
+    });
+  }
 
   Widget buildEmail() {
     return Column(
@@ -141,8 +159,7 @@ class _LoginScreenState extends State<LoginPage> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5,
-        onPressed: () => Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ScreenPrimary())),
+        onPressed: validacao,
         padding: const EdgeInsets.all(15),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
